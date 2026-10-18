@@ -28,11 +28,12 @@
   // ===== スタイル注入 =====
   function injectStyle() {
     var css = [
-      '.eaa-btn{position:fixed;right:20px;bottom:20px;width:60px;height:60px;border-radius:50%;',
+      // サイトの「TOP」ボタン（右下 20px・60px 角、SP は 40px 角）と重ならないよう、その上に置く（2026-10-18）
+      '.eaa-btn{position:fixed;right:20px;bottom:96px;width:60px;height:60px;border-radius:50%;',
       'background:' + BRAND.orange + ';color:#fff;border:none;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.2);',
       'font-family:' + FONT + ';font-size:13px;line-height:1.2;z-index:2147483000;}',
-      '.eaa-panel{position:fixed;right:20px;bottom:92px;width:340px;max-width:calc(100vw - 40px);height:480px;',
-      'max-height:calc(100vh - 120px);background:' + BRAND.bg + ';border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.25);',
+      '.eaa-panel{position:fixed;right:20px;bottom:168px;width:340px;max-width:calc(100vw - 40px);height:480px;',
+      'max-height:calc(100vh - 196px);background:' + BRAND.bg + ';border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.25);',
       'display:none;flex-direction:column;overflow:hidden;z-index:2147483000;font-family:' + FONT + ';color:' + BRAND.text + ';}',
       '.eaa-panel.eaa-open{display:flex;}',
       '.eaa-head{background:' + BRAND.orange + ';color:#fff;padding:14px 16px;font-size:15px;font-weight:bold;display:flex;justify-content:space-between;align-items:center;}',
@@ -49,7 +50,8 @@
       '.eaa-send:disabled{opacity:.5;cursor:default;}',
       '.eaa-note{font-size:11px;color:' + BRAND.textLight + ';padding:0 14px 8px;text-align:center;}',
       '.eaa-link{color:' + BRAND.orange + ';text-decoration:underline;}',
-      '.eaa-typing{font-size:13px;color:' + BRAND.textLight + ';}'
+      '.eaa-typing{font-size:13px;color:' + BRAND.textLight + ';}',
+      '@media (max-width:767px){.eaa-btn{bottom:72px;}.eaa-panel{bottom:144px;max-height:calc(100vh - 164px);}}'
     ].join('');
     var s = document.createElement('style');
     s.type = 'text/css';
